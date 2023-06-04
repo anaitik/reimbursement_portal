@@ -14,7 +14,12 @@ module ReimbursementPortal
     # Configuration for the application, engines, and railties goes here.
     config.middleware.use ActionDispatch::Cookies
 config.middleware.use ActionDispatch::Session::CookieStore
-
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :patch, :put, :delete, :options]
+      end
+    end
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

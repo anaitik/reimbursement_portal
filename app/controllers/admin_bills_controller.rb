@@ -1,5 +1,5 @@
 class AdminBillsController < ApplicationController
-    before_action :authorize_admin
+#     before_action :authorize_admin
 def index
    @bills = Bill.all
     render json: @bills
